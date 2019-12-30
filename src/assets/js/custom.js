@@ -3,9 +3,9 @@ $(function () {
 
 // Toggle Sidebar
 // tslint:disable-next-line:only-arrow-functions
-  $('[data-toggle="my-sidebar"]').click(function(event) {
+  $('[data-toggle="sidebar"]').click(function(event) {
     event.preventDefault();
-    $('.app').toggleClass('my-sidenav-toggled');
+    $('.app').toggleClass('sidenav-toggled');
   });
 
 // Activate sidebar treeview toggle
