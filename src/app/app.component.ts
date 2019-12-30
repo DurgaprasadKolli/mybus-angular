@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
               private cookieService: CookieService,
               private router: Router) {
     this.loginService.currentAccessToken.subscribe((x: any) => {
-      console.log(x);
       if (x) {
         this.loginService.get('/api/v1/user/me').subscribe((response: any) => {
           this.currentUserDetails = response;
