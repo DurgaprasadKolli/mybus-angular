@@ -1,9 +1,9 @@
 <div *ngIf="currentAccessToken">
-  <header class="my-app-header app-header-dark">
+  <header class="app-header app-header-dark">
     <a class="app-header__logo top-bar-brand">
       <span class="navbar-brand-name">My Bus</span>
     </a>
-    <a class="app-sidebar__toggle onClick waves-effect waves-light" href="" data-toggle="my-sidebar"
+    <a class="app-sidebar__toggle onClick waves-effect waves-light" href="" data-toggle="sidebar"
        aria-label="Hide Sidebar">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
@@ -51,12 +51,12 @@
   </header>
   <aside class="my-app-sidebar">
     <ul class="app-menu">
-<!--      <li ng-show="dashBoardMenu" style="display: none">-->
-<!--        <a class="app-menu__item active" href="" ui-sref="home" ng-click="dashBoardCall()">-->
-<!--          <i class="app-menu__icon fa fa-globe fa-lg"></i>-->
-<!--          <span class="app-menu__label">Cargo</span>-->
-<!--        </a>-->
-<!--      </li>-->
+      <li ng-show="dashBoardMenu">
+        <a class="app-menu__item active" routerLink="/" routerLinkActive="active">
+          <i class="app-menu__icon fa fa-tachometer fa-lg" aria-hidden="true"></i>
+          <span class="app-menu__label">Dash Board</span>
+        </a>
+      </li>
       <li class="treeview">
         <a class="app-menu__item" href="" data-toggle="treeview">
           <i class="app-menu__icon fa fa-globe fa-lg"></i>
@@ -120,6 +120,23 @@
           </li>
         </ul>
       </li>
+
+      <li class="treeview">
+        <a class="app-menu__item" href="" data-toggle="treeview">
+          <i class="app-menu__icon fa fa-universal-access fa-lg"></i>
+          <span class="app-menu__label">Master</span>
+          <i class="treeview-indicator fa fa-angle-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a class="treeview-item" routerLink="/branchOffices">
+              <i class="fa fa-circle-o" aria-hidden="true"></i>
+              Branch Offices
+            </a>
+          </li>
+        </ul>
+      </li>
+
       <li class="treeview">
         <a class="app-menu__item" href="" data-toggle="treeview">
           <i class="app-menu__icon fa fa-pie-chart"></i>

@@ -159,3 +159,29 @@ a.waves-effect .waves-ripple {
 .icon-box-bg-image-on-account i {
   color: #a94442
 }
+
+.ngb-dp-today {
+  background: #007afe;
+  color: #fff;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  border-radius: 0.25rem;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #dddddd
+}
+.custom-day:hover, .custom-day.focused {
+  background-color: #e6e6e6;
+}
+.weekend {
+  background-color: #f8f9fa;
+  /*border-radius: 1rem;*/
+  /*color: white;*/
+}
+.hidden {
+  display: none;
+}

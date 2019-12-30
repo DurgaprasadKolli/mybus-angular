@@ -1,0 +1,53 @@
+<div class="app-content">
+  <div class="app-title-card">
+    <div class="">
+      <h1>
+        Branch Offices
+      </h1>
+      <!--            <p>DashBoard</p>-->
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+      <li class="breadcrumb-item"><span class="fa fa-home fa-lg"></span></li>
+      <li class="breadcrumb-item"><span class="breadcrumb-item-router">BranchOffices</span></li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="tile">
+        <div class="tile-body">
+          <div class="container-fluid">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover text-center">
+                <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let branch of branchOfficeData">
+                  <th scope="row">{{ branch.id }}</th>
+                  <td>
+                    {{ branch.name }}
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="d-flex justify-content-between p-2">
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+                </ngb-pagination>
+
+                <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                  <option [ngValue]="2">2 items per page</option>
+                  <option [ngValue]="4">4 items per page</option>
+                  <option [ngValue]="6">6 items per page</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
