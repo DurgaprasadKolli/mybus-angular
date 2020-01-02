@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BranchofficesComponent } from './branchoffices/branchoffices.component';
+import { CitiesComponent } from './cities/cities.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { BranchofficesComponent } from './branchoffices/branchoffices.component'
     LoginComponent,
     HomeComponent,
     BranchofficesComponent,
+    CitiesComponent,
   ],
   imports: [
     AppRoutingModule,
