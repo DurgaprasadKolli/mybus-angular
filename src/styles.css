@@ -1432,7 +1432,7 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 .animated-checkbox input[type="checkbox"]:checked + .label-text:before {
   content: "";
-  color: #dd4d30;
+  color: #4a81d4;
   -webkit-animation: tick 180ms ease-in;
   animation: tick 180ms ease-in;
 }
@@ -1525,15 +1525,13 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
   box-shadow: inset 0 2px 2px 0 rgba(0, 0, 0, 0.14), inset 0 1px 5px 0 rgba(0, 0, 0, 0.12), inset 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-
-.fa-shirtsinbulk, .fa-eye, .fa-key, .fa-pencil, .fa-trash, .fa-check, .fa-times, .fa-undo, .fa-user, .fa-map-marker {
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
 .fa-map-marker {
   padding-left: 4px;
   padding-right: 4px;
+}
+
+.mandatory-field {
+  color: red;
 }
 
 .icon-row {
@@ -1541,11 +1539,6 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-}
-
-
-.fa-pencil {
-  color: #007bff;
 }
 
 .table-btn span:nth-child(1):hover {
@@ -1562,22 +1555,6 @@ div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 
 .li-ed-de:hover .fa-pencil {
   color: #0056b3;
-}
-
-/*.li-ed-de i {*/
-/*    margin-bottom: 24px;*/
-/*}*/
-
-.fa-trash {
-  padding-left: 2px;
-  padding-right: 2px;
-  color: #dc3545;
-}
-
-.fa-times:hover {
-  color: #dc3545;
-  cursor: pointer;
-  background-color: #FFFFFF;
 }
 
 .li-ed-de:hover .fa-trash {
