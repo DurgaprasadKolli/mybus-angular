@@ -11,11 +11,11 @@ export class ApiServiceService {
   constructor(private http: HttpClient,
               private cookieService: CookieService) { }
 
-  // httpOptions = {
-  //   headers: {
-  //     Authorization: this.cookieService.get('accessToken')
-  //   }
-  // };
+  httpOptions = {
+    headers: {
+      Authorization: this.cookieService.get('accessToken')
+    }
+  };
 
   get(url1, params?: any): Observable<any> {
     const option = {
@@ -24,18 +24,26 @@ export class ApiServiceService {
       },
       params
     };
-    console.log(option)
     return this.http.get(this.productUrl + url1, option);
   }
 
-  post(url1, params?: any): Observable<any> {
+  post(url1, data?: any): Observable<any> {
+    console.log(url1, data)
+    return this.http.post(this.productUrl + url1, data, this.httpOptions);
+  }
+
+  put(url1, data?: any): Observable<any> {
+    console.log(url1, data)
+    return this.http.put(this.productUrl + url1, data, this.httpOptions);
+  }
+
+  delete(url1, params?: any): Observable<any> {
     const option = {
       headers: {
         Authorization: this.cookieService.get('accessToken')
       },
       params
-    }
-    console.log(params)
-    return this.http.post(this.productUrl + url1, option);
+    };
+    return this.http.delete(this.productUrl + url1, option);
   }
 }
