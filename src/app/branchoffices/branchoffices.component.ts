@@ -9,51 +9,54 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class BranchofficesComponent implements OnInit {
   private branchOfficeData: any;
-  private params: { page: number; size: number; sorting: { name: any }; collectionSize: number };
-  $index: 0;
+  private params: { page: 1; size: 10; sorting: { name: 'asc' }};
   private count: number;
+  private collectionSize: any;
+  page: any = 1;
 
   constructor(private apiService: ApiServiceService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getAllBranchOfficesCount();
+    this.loadPage(this.page);
   }
 
-  getAllBranchOffices(params: { page: number; size: number; collectionSize: number }) {
-    this.apiService.get('/api/v1/branchOffices', params).subscribe((response) => {
-      if (response) {
-        this.branchOfficeData = response.content;
-        this.count = response.totalElements;
-      }
-    }, (error) => {
-
-    });
-  }
-
-  getAllBranchOfficesCount() {
+  getAllBranchOfficesCount(page: number) {
     this.params = {
-      page: 1,
+      page: page,
       size: 10,
       sorting: {
         name: 'asc'
       },
-      collectionSize: 20
-    };
+    }
+    console.log(this.params);
     this.apiService.get('/api/v1/branchOffices/count', this.params).subscribe((response) => {
       if (response === 0 || response) {
         this.params = {
-          page: 1,
+          page: page,
           size: 10,
           sorting: {
             name: 'asc'
           },
-          collectionSize: response
         };
-        this.getAllBranchOffices(this.params);
+        this.collectionSize = response;
+        this.apiService.get('/api/v1/branchOffices', this.params).subscribe((responseData) => {
+          if (responseData) {
+            this.branchOfficeData = responseData.content;
+            this.count = responseData.totalElements;
+          }
+        }, (error) => {
+
+        });
       }
     });
+  }
+
+  loadPage(page: number) {
+    if (page) {
+      this.getAllBranchOfficesCount(page);
+    }
   }
 
   deleteBranchOffice(branchOfficeId) {
