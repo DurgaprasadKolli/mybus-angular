@@ -13,19 +13,20 @@ export class BranchofficesComponent implements OnInit {
   private count: number;
   private collectionSize: any;
   page: any = 1;
+  size: any = 10;
 
   constructor(private apiService: ApiServiceService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadPage(this.page);
+    this.getAllBranchOfficesCount(this.page, this.size);
   }
 
-  getAllBranchOfficesCount(page: number) {
+  getAllBranchOfficesCount(page: number, size: number) {
     this.params = {
       page: page,
-      size: 10,
+      size: size,
       sorting: {
         name: 'asc'
       },
@@ -35,7 +36,7 @@ export class BranchofficesComponent implements OnInit {
       if (response === 0 || response) {
         this.params = {
           page: page,
-          size: 10,
+          size: size,
           sorting: {
             name: 'asc'
           },
@@ -53,11 +54,11 @@ export class BranchofficesComponent implements OnInit {
     });
   }
 
-  loadPage(page: number) {
-    if (page) {
-      this.getAllBranchOfficesCount(page);
-    }
-  }
+  // loadPage(page: number, size: number) {
+  //   if (page || size) {
+  //     this.getAllBranchOfficesCount(page, size);
+  //   }
+  // }
 
   deleteBranchOffice(branchOfficeId) {
     this.apiService.delete('/api/v1/branchOffice/' + branchOfficeId, this.params).subscribe((response) => {

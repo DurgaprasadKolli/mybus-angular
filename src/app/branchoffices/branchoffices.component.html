@@ -62,10 +62,10 @@
                   </tbody>
                 </table>
                 <div class="d-flex justify-content-between p-2">
-                  <ngb-pagination [collectionSize]="collectionSize || 0" [(page)]="page" [size]="params.size" (pageChange)="loadPage(page)">
+                  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [size]="size" (pageChange)="getAllBranchOfficesCount(page, size)">
                   </ngb-pagination>
 
-                  <select class="custom-select" style="width: auto" [(ngModel)]="params.size">
+                  <select class="custom-select" style="width: auto" [(ngModel)]="size" (click)="getAllBranchOfficesCount(page, size)">
                     <option [ngValue]="10">10 items per page</option>
                     <option [ngValue]="20">20 items per page</option>
                     <option [ngValue]="50">50 items per page</option>
