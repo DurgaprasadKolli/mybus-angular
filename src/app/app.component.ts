@@ -24,7 +24,9 @@ export class AppComponent implements OnInit {
     this.loginService.currentAccessToken.subscribe((x: any) => {
       if (x) {
         this.loginService.get('/api/v1/user/me').subscribe((response: any) => {
-          this.currentUserDetails = response;
+          if (response) {
+            this.currentUserDetails = response;
+          }
         }, (error) => {
 
         });
