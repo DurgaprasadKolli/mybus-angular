@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ApiServiceService} from '../../api/api-service.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-and-edit-branch-office',
@@ -19,7 +20,8 @@ export class AddAndEditBranchOfficeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private apiService: ApiServiceService,
-              private router: Router) { }
+              private router: Router,
+              private toastrService: ToastrService) { }
 
   ngOnInit() {
     this.getCityList();
@@ -48,14 +50,15 @@ export class AddAndEditBranchOfficeComponent implements OnInit {
     if (this.branchOfficeId) {
       this.apiService.put('/api/v1/branchOffice/' + this.branchOfficeId, this.office).subscribe((response) => {
         if (response) {
-          console.log(response);
+          console.log('update', response)
+          this.toastrService.success('Branch Office Updated', 'Success');
           this.router.navigate(['/branchOffices']);
         }
       });
     } else  {
       this.apiService.post('/api/v1/branchOffice', this.office).subscribe((response) => {
         if (response) {
-          console.log(response);
+          this.toastrService.success('Branch Office Created', 'Success');
           this.router.navigate(['/branchOffices']);
         }
       });

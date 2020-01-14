@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiServiceService} from '../api/api-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-branchoffices',
@@ -9,7 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class BranchofficesComponent implements OnInit {
   private branchOfficeData: any;
-  private params: { page: 1; size: 10; sorting: { name: 'asc' }};
+  private params: { page: number; size: number; sorting: { name: string }};
   private count: number;
   private collectionSize: any;
   page: any = 1;
@@ -25,18 +26,17 @@ export class BranchofficesComponent implements OnInit {
 
   getAllBranchOfficesCount(page: number, size: number) {
     this.params = {
-      page: page,
-      size: size,
+      page,
+      size,
       sorting: {
         name: 'asc'
       },
-    }
-    console.log(this.params);
+    };
     this.apiService.get('/api/v1/branchOffices/count', this.params).subscribe((response) => {
       if (response === 0 || response) {
         this.params = {
-          page: page,
-          size: size,
+          page,
+          size,
           sorting: {
             name: 'asc'
           },
@@ -61,11 +61,35 @@ export class BranchofficesComponent implements OnInit {
   // }
 
   deleteBranchOffice(branchOfficeId) {
-    this.apiService.delete('/api/v1/branchOffice/' + branchOfficeId, this.params).subscribe((response) => {
-      if (response) {
-        console.log('data');
+    swal.fire({
+      // type: 'warning',
+      title: 'Are you sure to Delete Staff?',
+      text: 'You will not be able to recover the data of Staff',
+      icon: 'warning',
+      showCancelButton: true,
+      // confirmButtonColor: '#049F0C',
+      // cancelButtonColor: '#ff0000',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        this.apiService.delete('/api/v1/branchOffice/' + branchOfficeId, this.params).subscribe((response) => {
+          if (response) {
+            swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            );
+          }
+        });
       }
     });
+
+    // this.apiService.delete('/api/v1/branchOffice/' + branchOfficeId, this.params).subscribe((response) => {
+    //   if (response) {
+    //     console.log('data');
+    //   }
+    // });
   }
 
 }

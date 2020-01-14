@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BranchofficesComponent } from './branchoffices/branchoffices.component';
 import { CitiesComponent } from './cities/cities.component';
 import { AddAndEditBranchOfficeComponent } from './branchoffices/add-and-edit-branch-office/add-and-edit-branch-office.component';
+import {ToastrModule} from 'ngx-toastr';
+import {SweetAlert2Module} from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,11 @@ import { AddAndEditBranchOfficeComponent } from './branchoffices/add-and-edit-br
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-center'
+    }), // ToastrModule added
+    SweetAlert2Module.forRoot(),
     NgbModule,
     NgbPaginationModule
   ],

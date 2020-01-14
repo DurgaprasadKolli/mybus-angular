@@ -28,13 +28,16 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css",
               "src/assets/css/app.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/custom.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.min.js"
             ]
           },
           "configurations": {
@@ -102,13 +105,16 @@
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/font-awesome/css/font-awesome.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css",
               "src/assets/css/app.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "src/assets/js/custom.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.min.js"
             ]
           }
         },
